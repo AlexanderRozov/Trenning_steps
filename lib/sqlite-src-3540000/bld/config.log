@@ -1,0 +1,182 @@
+Invoked as: ../configure 
+Tclsh: C:/Users/fog54/AppData/Roaming/kimi-desktop/daimon-bundle/runtime/git/mingw64/bin/tclsh.exe
+Failed: ccache gcc -c -D_FILE_OFFSET_BITS=64 -O2 -g conftest__.c -o conftest__.o
+conftest__.c: In function 'main':
+conftest__.c:3:12: error: size of array '_x' is negative
+    3 | static int _x[sizeof(off_t) == 4 ? 1 : -1] = { 1 };
+      |            ^~
+child process exited abnormally
+============
+The failed code was:
+#include <sys/types.h>
+int main(void) {
+static int _x[sizeof(off_t) == 4 ? 1 : -1] = { 1 };
+return 0;
+}
+============
+Failed: ccache gcc -O2 -g conftest__.c -o conftest__
+C:/Users/fog54/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\fog54\AppData\Local\Temp\ccyqa7t4.o: in function `main':
+H:/tREND/lib/sqlite-src-3540000/bld/conftest__.c:3:(.text.startup+0xa): undefined reference to `gmtime_r'
+collect2.exe: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void gmtime_r(void);
+int main(void) {
+gmtime_r();
+return 0;
+}
+============
+Failed: ccache gcc -O2 -g conftest__.c -o conftest__
+C:/Users/fog54/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\fog54\AppData\Local\Temp\cceMPEMH.o: in function `main':
+H:/tREND/lib/sqlite-src-3540000/bld/conftest__.c:3:(.text.startup+0xa): undefined reference to `localtime_r'
+collect2.exe: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void localtime_r(void);
+int main(void) {
+localtime_r();
+return 0;
+}
+============
+Failed: ccache gcc -O2 -g conftest__.c -o conftest__
+C:/Users/fog54/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\fog54\AppData\Local\Temp\cc0kBfvd.o: in function `main':
+H:/tREND/lib/sqlite-src-3540000/bld/conftest__.c:3:(.text.startup+0xa): undefined reference to `localtime_s'
+collect2.exe: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void localtime_s(void);
+int main(void) {
+localtime_s();
+return 0;
+}
+============
+Failed: ccache gcc -O2 -g conftest__.c -o conftest__
+C:/Users/fog54/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\fog54\AppData\Local\Temp\ccqFRs6J.o: in function `main':
+H:/tREND/lib/sqlite-src-3540000/bld/conftest__.c:3:(.text.startup+0xa): undefined reference to `pread'
+collect2.exe: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void pread(void);
+int main(void) {
+pread();
+return 0;
+}
+============
+Failed: ccache gcc -O2 -g conftest__.c -o conftest__
+C:/Users/fog54/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\fog54\AppData\Local\Temp\cc2eulOj.o: in function `main':
+H:/tREND/lib/sqlite-src-3540000/bld/conftest__.c:3:(.text.startup+0xa): undefined reference to `pread64'
+collect2.exe: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void pread64(void);
+int main(void) {
+pread64();
+return 0;
+}
+============
+Failed: ccache gcc -O2 -g conftest__.c -o conftest__
+C:/Users/fog54/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\fog54\AppData\Local\Temp\ccgRebFB.o: in function `main':
+H:/tREND/lib/sqlite-src-3540000/bld/conftest__.c:3:(.text.startup+0xa): undefined reference to `pwrite'
+collect2.exe: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void pwrite(void);
+int main(void) {
+pwrite();
+return 0;
+}
+============
+Failed: ccache gcc -O2 -g conftest__.c -o conftest__
+C:/Users/fog54/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\fog54\AppData\Local\Temp\ccWQLod9.o: in function `main':
+H:/tREND/lib/sqlite-src-3540000/bld/conftest__.c:3:(.text.startup+0xa): undefined reference to `pwrite64'
+collect2.exe: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void pwrite64(void);
+int main(void) {
+pwrite64();
+return 0;
+}
+============
+Failed: ccache gcc -O2 -g conftest__.c -o conftest__
+C:/Users/fog54/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\fog54\AppData\Local\Temp\ccm47FFA.o: in function `main':
+H:/tREND/lib/sqlite-src-3540000/bld/conftest__.c:3:(.text.startup+0xa): undefined reference to `fdatasync'
+collect2.exe: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void fdatasync(void);
+int main(void) {
+fdatasync();
+return 0;
+}
+============
+Failed: ccache gcc -O2 -g conftest__.c -o conftest__ -lrt
+C:/Users/fog54/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: cannot find -lrt: No such file or directory
+collect2.exe: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void fdatasync(void);
+int main(void) {
+fdatasync();
+return 0;
+}
+============
+Failed: ccache gcc -c -O2 -g conftest__.c -o conftest__.o
+conftest__.c:1:10: fatal error: dlfcn.h: No such file or directory
+    1 | #include <dlfcn.h>
+      |          ^~~~~~~~~
+compilation terminated.
+child process exited abnormally
+============
+The failed code was:
+#include <dlfcn.h>
+int main(void) {
+
+return 0;
+}
+============
+Failed: ccache gcc -c -O2 -g conftest__.c -o conftest__.o
+conftest__.c:1:10: fatal error: zlib.h: No such file or directory
+    1 | #include <zlib.h>
+      |          ^~~~~~~~
+compilation terminated.
+child process exited abnormally
+============
+The failed code was:
+#include <zlib.h>
+int main(void) {
+
+return 0;
+}
+============
+Failed: ccache gcc conftest__.c -o conftest__
+C:/Users/fog54/AppData/Local/Microsoft/WinGet/Packages/BrechtSanders.WinLibs.POSIX.UCRT_Microsoft.Winget.Source_8wekyb3d8bbwe/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/16.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: C:\Users\fog54\AppData\Local\Temp\ccM1Vfgl.o:conftest__.c:(.text+0xe): undefined reference to `realpath'
+collect2.exe: error: ld returned 1 exit status
+child process exited abnormally
+============
+The failed code was:
+extern void realpath(void);
+int main(void) {
+realpath();
+return 0;
+}
+============
+Failed: ccache gcc -rpath /usr/local/lib -O2 -g conftest__.c -o conftest__
+gcc.exe: error: unrecognized command-line option '-rpath'
+child process exited abnormally
+============
+The failed code was:
+int main(void) {
+
+return 0;
+}
+============

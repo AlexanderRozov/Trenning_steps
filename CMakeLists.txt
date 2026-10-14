@@ -3,4 +3,13 @@ project(tREND C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(tREND main.c)
+add_executable(tREND
+        main.c
+        src/db.c
+        lib/sqlite3/sqlite3.c
+)
+
+target_include_directories(tREND PRIVATE
+        src
+        lib/sqlite3
+)
