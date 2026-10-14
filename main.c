@@ -1,4 +1,5 @@
 #include "src/db.h"
+#include "src/gui.h"
 
 #include <stdio.h>
 #include <string.h>
@@ -67,13 +68,7 @@ static void print_menu(void) {
     printf("===========================\n");
 }
 
-int main(void) {
-    setup_console();
-
-    if (db_open(DB_PATH) != 0) {
-        return 1;
-    }
-
+static int run_cli(void) {
     printf("База данных '%s' подключена.\n", DB_PATH);
 
     for (;;) {
@@ -84,9 +79,26 @@ int main(void) {
             case 2: ui_list_dates(); break;
             case 3: ui_delete_date(); break;
             case 0:
-                db_close();
                 printf("До свидания!\n");
                 return 0;
         }
     }
+}
+
+int main(int argc, char **argv) {
+    setup_console();
+
+    if (db_open(DB_PATH) != 0) {
+        return 1;
+    }
+
+    int rc;
+    if (argc > 1 && strcmp(argv[1], "--cli") == 0) {
+        rc = run_cli();
+    } else {
+        rc = run_gui();
+    }
+
+    db_close();
+    return rc;
 }

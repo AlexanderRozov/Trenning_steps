@@ -86,7 +86,7 @@ int delete_date(int id) {
     return changes > 0 ? 0 : 1;
 }
 
-int print_all_dates(void) {
+int get_all_dates(struct DateRow *out, int max) {
     if (!g_db) return -1;
 
     sqlite3_stmt *stmt = NULL;
@@ -97,21 +97,33 @@ int print_all_dates(void) {
         return -1;
     }
 
-    printf("+------+------------+\n");
-    printf("|  ID  |    Дата    |\n");
-    printf("+------+------------+\n");
-
     int count = 0;
-    while (sqlite3_step(stmt) == SQLITE_ROW) {
-        printf("| %4d | %02d.%02d.%04d |\n",
-               sqlite3_column_int(stmt, 0),
-               sqlite3_column_int(stmt, 1),
-               sqlite3_column_int(stmt, 2),
-               sqlite3_column_int(stmt, 3));
+    while (count < max && sqlite3_step(stmt) == SQLITE_ROW) {
+        out[count].id = sqlite3_column_int(stmt, 0);
+        out[count].date.day = sqlite3_column_int(stmt, 1);
+        out[count].date.month = sqlite3_column_int(stmt, 2);
+        out[count].date.year = sqlite3_column_int(stmt, 3);
         count++;
     }
     sqlite3_finalize(stmt);
+    return count;
+}
 
+int print_all_dates(void) {
+    struct DateRow rows[1024];
+    int count = get_all_dates(rows, 1024);
+    if (count < 0) return -1;
+
+    printf("+------+------------+\n");
+    printf("|  ID  |    Дата    |\n");
+    printf("+------+------------+\n");
+    for (int i = 0; i < count; i++) {
+        printf("| %4d | %02d.%02d.%04d |\n",
+               rows[i].id,
+               rows[i].date.day,
+               rows[i].date.month,
+               rows[i].date.year);
+    }
     printf("+------+------------+\n");
     if (count == 0) {
         printf("Записей пока нет.\n");
