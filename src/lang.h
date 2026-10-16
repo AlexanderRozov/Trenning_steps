@@ -5,7 +5,7 @@ enum Lang {
     LANG_RU = 0,
     LANG_EN,
     LANG_DE,
-    LANG_JV,
+    LANG_JA,
     LANG_FR,
     LANG_ZH,
     LANG_PT,

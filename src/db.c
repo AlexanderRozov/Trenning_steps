@@ -1,4 +1,5 @@
 #include "db.h"
+#include "lang.h"
 #include "sqlite3.h"
 
 #include <stdio.h>
@@ -67,6 +68,7 @@ int db_open(const char *path) {
         { KEY_NOTIFY_MINUTE,  "0"    },
         { KEY_NOTIFY_PERIOD,  "1"    },
         { KEY_LAST_NOTIFY,    ""     },
+        { "language",         "ru"   },
     };
     for (size_t i = 0; i < sizeof defaults / sizeof defaults[0]; i++) {
         sqlite3_reset(st);
@@ -291,19 +293,21 @@ int print_schedule(void) {
     int count = get_schedule(rows, 4096);
     if (count < 0) return -1;
 
-    printf("+------+------------+-------+----------------+\n");
-    printf("|  ID  |    Дата    | Шаги  | Статус         |\n");
-    printf("+------+------------+-------+----------------+\n");
+    printf("+------+------------+-------+------------------+\n");
+    printf("| %4s | %10s | %5s | %-16s |\n",
+           "ID", tr(S_COL_DATE), tr(S_COL_STEPS), tr(S_COL_STATUS));
+    printf("+------+------------+-------+------------------+\n");
     for (int i = 0; i < count; i++) {
-        printf("| %4d | %s | %5d | %-14s |\n",
+        printf("| %4d | %s | %5d | %-16s |\n",
                rows[i].id, rows[i].date, rows[i].steps,
-               rows[i].done ? "выполнено" : "не выполнено");
+               tr(rows[i].done ? S_DONE : S_NOT_DONE));
     }
-    printf("+------+------------+-------+----------------+\n");
+    printf("+------+------------+-------+------------------+\n");
     if (count == 0) {
-        printf("Расписание пусто. Сгенерируйте его (пункт 1).\n");
+        printf("%s\n", tr(S_EMPTY));
     } else {
-        printf("Всего записей: %d\n", count);
+        printf(tr(S_TOTAL), count);
+        printf("\n");
     }
     return 0;
 }

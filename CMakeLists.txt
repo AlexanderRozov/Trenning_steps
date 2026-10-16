@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 4.2)
+cmake_minimum_required(VERSION 3.25)
 project(tREND C)
 
 set(CMAKE_C_STANDARD 11)
@@ -7,6 +7,7 @@ add_executable(tREND
         main.c
         src/db.c
         src/gui.c
+        src/lang.c
         lib/sqlite3/sqlite3.c
 )
 
